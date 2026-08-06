@@ -56,7 +56,7 @@ const ReviewsPage = () => {
                 </article>
             ))
             ) : (
-                <p>Failed to load reviews</p>
+                <p>There are no reviews yet</p>
             )}
         </main>
     );
