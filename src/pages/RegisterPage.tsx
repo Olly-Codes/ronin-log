@@ -41,47 +41,76 @@ const RegisterPage = () => {
     };
 
     return (
-        <main>
-            <form onSubmit={handleSubmit}>
-                <header>
-                    <h1>Ronin <span>Log</span></h1>
-                    <p>Register an account to start commenting on reviews</p>
+        <main className="min-h-screen flex items-center justify-center bg-background">
+            <form 
+                onSubmit={handleSubmit}
+                className="w-full max-w-xs md:max-w-md bg-surface shadow-sm border border-border p-10"
+            >
+                <header className="text-center mb-8">
+                    <h1 className="text-2xl font-bold text-primary mb-3">
+                        Ronin <span className="text-accent">Log</span>
+                    </h1>
+                    <p className="text-muted text-sm">Register an account to start commenting on reviews</p>
                 </header>
 
-                <section>
-                    <label htmlFor="username">Username</label>
+                <div className="border-t border-border mb-6"></div>
+
+                <section className="mb-5">
+                    <label 
+                        htmlFor="username"
+                        className="block text-sm font-medium text-muted mb-1"
+                    >
+                        Username
+                    </label>
                     <input
                         id="username" 
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        className="w-full bg-background border border-border px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                         required
                     />
                 </section>
 
-                <section>
-                    <label htmlFor="email">Email</label>
+                <section className="mb-5">
+                    <label 
+                        htmlFor="email"
+                        className="block text-sm font-medium text-muted mb-1"
+                    >
+                        Email
+                    </label>
                     <input
                         id="email" 
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-background border border-border px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                         required
                     />
                 </section>
 
-                <section>
-                    <label htmlFor="password">Password</label>
+                <section className="mb-5">
+                    <label 
+                        htmlFor="password"
+                        className="block text-sm font-medium text-muted mb-1"
+                    >
+                        Password
+                    </label>
                     <input
                         id="password" 
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        className="w-full bg-background border border-border px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                         required 
                     />
                 </section>
 
-                <button type="submit" disabled={submitting}>
+                <button 
+                    type="submit" 
+                    disabled={submitting}
+                    className="w-full bg-red-600 text-white font-semibold py-2 hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
+                >
                     {submitting ? "Creating account..." : "Register"}
                 </button>
             </form>
