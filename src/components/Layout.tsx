@@ -13,7 +13,12 @@ const Layout = () => {
             <header>
                 <p>Ronin <span>Log</span></p>
                 <Navbar />
-                {user ? (<button onClick={logout}>Logout</button>) : (<button onClick={() => navigate("/auth/login")}>Login</button>)}
+                {user ? (<button onClick={logout}>Logout</button>) : (
+                    <div>
+                        <button onClick={() => navigate("/auth/login")}>Login</button>
+                        <button onClick={() => navigate("/auth/register")}>Register</button>
+                    </div>
+                )}
             </header>
 
             <Outlet />
