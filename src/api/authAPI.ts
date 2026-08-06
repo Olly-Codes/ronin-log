@@ -9,6 +9,11 @@ const login = async (email: string, password: string) => {
     return res.data;
 };
 
+const logout = () => {
+    localStorage.removeItem("token");
+};
+
 export default {
-    login
+    login,
+    logout
 }
