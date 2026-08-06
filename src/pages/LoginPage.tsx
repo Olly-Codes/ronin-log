@@ -38,16 +38,24 @@ const LoginPage = () => {
     };
 
     return (
-        <main>
-            <form onSubmit={handleSubmit}>
-                <header>
-                    <h1>Ronin <span>Log</span></h1>
-                    <p>Sign in to create comments on reviews</p>
+        <main className="min-h-screen flex items-center justify-center bg-background">
+            <form 
+                onSubmit={handleSubmit}
+                className="w-full max-w-xs md:max-w-md bg-surface shadow-sm border border-border p-10"
+            >
+                <header className="text-center mb-8">
+                    <h1 className="text-2xl font-bold text-primary mb-3">
+                        Ronin <span className="text-accent">Log</span>
+                    </h1>
+                    <p className="text-muted text-sm">Sign in to create comments on reviews</p>
                 </header>
 
-                <section>
+                <div className="border-t border-border mb-6"></div>
+
+                <section className="mb-5">
                     <label 
                         htmlFor="email"
+                        className="block text-sm font-medium text-muted mb-1"
                     >
                         Email
                     </label>
@@ -56,6 +64,7 @@ const LoginPage = () => {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-background border border-border px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                         required
                     />
                 </section>
@@ -63,6 +72,7 @@ const LoginPage = () => {
                 <section>
                     <label 
                         htmlFor="password"
+                        className="block text-sm font-medium text-muted mb-1"
                     >
                         Password
                     </label>
@@ -71,6 +81,7 @@ const LoginPage = () => {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        className="w-full bg-background border border-border px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                         required 
                     />
                 </section>
@@ -78,6 +89,7 @@ const LoginPage = () => {
                 <button 
                     type="submit" 
                     disabled={submitting}
+                    className="w-full bg-red-600 text-white font-semibold py-2 hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 mt-5"
                 >
                     {submitting ? "Logging in..." : "Login"}
                 </button>
