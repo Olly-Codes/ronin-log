@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import type { ReactNode } from "react";
 import authAPI from "../api/authAPI";
+import type { RegisterPayload } from "../types/types";
 
 interface User {
     id: number;
@@ -12,6 +13,7 @@ interface User {
 interface AuthContextType {
     user: User | null;
     login: (email: string, password: string) => Promise<void>;
+    register: (payload: RegisterPayload) => Promise<void>;
     logout: () => void;
 };
 
@@ -44,13 +46,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         });
     };
 
+    const register = async (payload: RegisterPayload) => {
+        const userData = await authAPI.register(payload);
+        localStorage.setItem("token", userData.token);
+        localStorage.setItem("user", JSON.stringify({
+            id: userData.id,
+            username: userData.username,
+            role: userData.role
+        }));
+        setUser({
+            id: userData.id,
+            username: userData.username,
+            role: userData.role
+        });
+    };
+
     const logout = () => {
         authAPI.logout();
         setUser(null);
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user, login, register, logout }}>
             {children}
         </AuthContext.Provider>
     );
