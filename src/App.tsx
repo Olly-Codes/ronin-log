@@ -6,7 +6,8 @@ import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import RedirectAuth from "./components/redirectAuth";
+import RedirectAuth from "./components/RedirectAuth";
+import ReviewDetailsPage from "./pages/ReviewDetailsPage";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
+          <Route path="/reviews/:id" element={<ReviewDetailsPage />} />
         </Route>
         <Route path="/auth/login" element={
           <RedirectAuth>
