@@ -5,6 +5,7 @@ import ReviewsPage from "./pages/ReviewsPage";
 import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         </Route>
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegisterPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
