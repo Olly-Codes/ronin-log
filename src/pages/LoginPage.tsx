@@ -69,7 +69,7 @@ const LoginPage = () => {
                     />
                 </section>
 
-                <section>
+                <section className="mb-5">
                     <label 
                         htmlFor="password"
                         className="block text-sm font-medium text-muted mb-1"
@@ -89,7 +89,7 @@ const LoginPage = () => {
                 <button 
                     type="submit" 
                     disabled={submitting}
-                    className="w-full bg-red-600 text-white font-semibold py-2 hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 mt-5"
+                    className="w-full bg-red-600 text-white font-semibold py-2 hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
                 >
                     {submitting ? "Logging in..." : "Login"}
                 </button>
