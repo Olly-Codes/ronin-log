@@ -47,3 +47,25 @@ export interface ReviewDetailResponse {
   review: ReviewDetail;
   comments: Comment[];
 }
+
+export interface LoginResponse {
+    id: number;
+    username: string;
+    role: string;
+    token: string;
+};
+
+export interface RegisterPayload {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface RegisterResponse {
+  id: number;
+  username: string;
+  email: string;
+  role: string;
+  token: string;
+  expiresIn: string;
+}
