@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import RedirectAuth from "./components/redirectAuth";
 
 function App() {
 
@@ -17,7 +18,11 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
         </Route>
-        <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/auth/login" element={
+          <RedirectAuth>
+            <LoginPage />
+          </RedirectAuth>
+          } />
         <Route path="/auth/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
