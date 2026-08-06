@@ -9,7 +9,7 @@ const Layout = () => {
     const navigate = useNavigate();
 
     return (
-        <>
+        <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
             <header className="h-16 bg-surface border-b border-border flex items-center justify-around text-primary font-bold">
                 <p className="text-xl">Ronin <span className="text-accent">Log</span></p>
                 <Navbar />
@@ -46,7 +46,7 @@ const Layout = () => {
             <footer>
                 <Footer />
             </footer>
-        </>
+        </div>
     );
 };
 
