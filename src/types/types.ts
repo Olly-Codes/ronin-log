@@ -13,6 +13,14 @@ export interface Comment {
   username: string;
 }
 
+export interface CommentsCreateResponse {
+  comment: {
+    comment_id: number;
+    content: string;
+    created_at: string;
+  };
+}
+
 export interface Review {
   review_id: number;
   title: string;
