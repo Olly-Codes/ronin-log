@@ -1,14 +1,19 @@
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useAuth } from "../hooks/useAuth";
 
 const Layout = () => {
+
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
     return (
         <>
             <header>
                 <p>Ronin <span>Log</span></p>
                 <Navbar />
-                <button>Login</button>
+                {user ? (<button onClick={logout}>Logout</button>) : (<button onClick={() => navigate("/auth/login")}>Login</button>)}
             </header>
 
             <Outlet />
