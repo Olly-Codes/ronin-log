@@ -6,11 +6,18 @@ declare module 'axios' {
   }
 }
 
+export interface Comment {
+  comment_id: number;
+  content: string;
+  created_at: string;
+  username: string;
+}
+
 export interface Review {
   review_id: number;
   title: string;
   score: number;
-  cover_img_url: string;
+  cover_image_url: string;
   published: boolean;
   created_at: string;
   demographic: string;
@@ -18,7 +25,17 @@ export interface Review {
   genres: string[];
 }
 
+export interface ReviewDetail extends Review {
+  body: string;
+  updated_at: string;
+}
+
 export interface ReviewsResponse {
   count: number;
   reviews: Review[];
+}
+
+export interface ReviewDetailResponse {
+  review: ReviewDetail;
+  comments: Comment[];
 }

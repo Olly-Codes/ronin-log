@@ -1,4 +1,4 @@
-import type { ReviewsResponse } from "../types/types";
+import type { ReviewDetailResponse, ReviewsResponse } from "../types/types";
 import apiClient from "./apiClient";
 
 const getReviews = async (): Promise<ReviewsResponse> => {
@@ -6,6 +6,12 @@ const getReviews = async (): Promise<ReviewsResponse> => {
     return res.data;
 };
 
+const getReviewById = async (id: number): Promise<ReviewDetailResponse> => {
+    const res = await apiClient.get<ReviewDetailResponse>(`/reviews/${id}`);
+    return res.data;
+}
+
 export default {
-    getReviews
+    getReviews,
+    getReviewById
 }
