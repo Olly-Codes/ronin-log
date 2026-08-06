@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router";
 import { toast } from "react-hot-toast";
+import axios from "axios";
 
 const LoginPage = () => {
 
@@ -12,7 +13,7 @@ const LoginPage = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e): Promise<void> => {
+    const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         setSubmitting(true);
 
@@ -21,7 +22,16 @@ const LoginPage = () => {
             toast.success("Logged in successfully");
             navigate("/reviews");
         } catch (err) {
-            toast.error("Invalid email or password");
+            if (axios.isAxiosError(err)) {
+                if(err.response?.status === 401) {
+                    toast.error(err.response.data?.error ?? "Invalid email or password");
+                } else {
+                    toast.error("Something went wrong. Please try again");
+                }
+            } else {
+                toast.error("Something went wrong. Please try again");
+            }
+            
         } finally {
             setSubmitting(false);
         }
