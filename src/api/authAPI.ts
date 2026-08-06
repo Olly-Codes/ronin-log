@@ -1,10 +1,9 @@
+import type { LoginResponse, RegisterPayload, RegisterResponse } from "../types/types";
 import apiClient from "./apiClient";
 
-interface LoginResponse {
-    id: number;
-    username: string;
-    role: string;
-    token: string;
+const register = async (payload: RegisterPayload): Promise<RegisterResponse> => {
+  const res = await apiClient.post<RegisterResponse>("/auth/register", payload);
+  return res.data;
 };
 
 const login = async (email: string, password: string): Promise<LoginResponse> => {
@@ -22,5 +21,6 @@ const logout = () => {
 
 export default {
     login,
-    logout
+    logout,
+    register
 }
