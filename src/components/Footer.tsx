@@ -3,14 +3,13 @@ import { Link } from "react-router";
 const Footer = () => {
 
     const links = [
-        { to: "/", label: "Home" },
         { to: "/reviews", label: "Reviews" },
         { to: "/about", label: "About" },
     ];
 
     return (
         <>
-            <p>Ronin Log</p>
+            <p>Ronin <span>Log</span></p>
             <ul>
                 {links.map((link) => (
                     <Link 
