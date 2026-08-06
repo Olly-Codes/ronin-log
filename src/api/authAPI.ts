@@ -1,7 +1,14 @@
 import apiClient from "./apiClient";
 
-const login = async (email: string, password: string) => {
-    const res = await apiClient.post(
+interface LoginResponse {
+    id: number;
+    username: string;
+    role: string;
+    token: string;
+};
+
+const login = async (email: string, password: string): Promise<LoginResponse> => {
+    const res = await apiClient.post<LoginResponse>(
         "/auth/login",
         { email, password },
         { skipAuthRedirect: true }
