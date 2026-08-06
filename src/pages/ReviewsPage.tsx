@@ -47,7 +47,7 @@ const ReviewsPage = () => {
                         <section>
                             <p className="text-muted text-sm mb-1">{review.media_type} &bull; {review.demographic}</p>
                             <div className="text-primary mb-4">
-                                <h2 className="text-3xl font-semibold mb-1">{review.title}</h2>
+                                <h2 className="text-xl lg:text-2xl font-semibold mb-1">{review.title}</h2>
                                 <span className="text-2xl">Rating: {review.score}/10</span>
                             </div>
                             <div className="flex gap-4">
