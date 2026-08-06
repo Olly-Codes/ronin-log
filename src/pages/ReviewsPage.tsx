@@ -18,46 +18,55 @@ const ReviewsPage = () => {
     }
     
     return (
-        <main>
-            <h1>Reviews</h1>
-            {reviewsQuery.data ? (reviewsQuery.data.reviews.map((review) => (
-                <article
-                    key={review.review_id}
-                    onClick={() => navigate(`${review.review_id}`)}
-                >
-                    <section>
-                        {review.cover_image_url ? (
-                            <img 
-                                src={review.cover_image_url}
-                                alt={review.title}
-                            />
-                        ) : (
-                            <div>
-                                No image
-                            </div>
-                        )}
-                    </section>
+        <main className="p-8">
+            <header>
+                <h1 className="text-2xl font-bold text-primary mb-4">Reviews</h1>
+            </header>
 
-                    <section>
-                        <p>{review.media_type} &bull; {review.demographic}</p>
-                        <div>
-                            <h2>{review.title}</h2>
-                            <span>{review.score}</span>
-                        </div>
-                        <div>
-                            {review.genres.map((genre) => (
-                                <span
-                                    key={genre}>
-                                        {genre}
-                                    </span>
-                            ))}
-                        </div>
-                    </section>
-                </article>
-            ))
-            ) : (
-                <p>There are no reviews yet</p>
-            )}
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {reviewsQuery.data ? (reviewsQuery.data.reviews.map((review) => (
+                    <article
+                        key={review.review_id}
+                        onClick={() => navigate(`${review.review_id}`)}
+                        className="bg-surface border border-border p-4 flex flex-col justify-between cursor-pointer hover:bg-surface-hover"
+                    >
+                        <section className="aspect-[16/9] bg-surface-hover overflow-hidden text-primary mb-4">
+                            {review.cover_image_url ? (
+                                <img 
+                                    src={review.cover_image_url}
+                                    alt={review.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            ) : (
+                                <div className="w-full h-full bg-surface-hover flex items-center justify-center text-muted">
+                                    No image
+                                </div>
+                            )}
+                        </section>
+
+                        <section>
+                            <p className="text-muted text-sm mb-1">{review.media_type} &bull; {review.demographic}</p>
+                            <div className="text-primary mb-4">
+                                <h2 className="text-3xl font-semibold mb-1">{review.title}</h2>
+                                <span className="text-2xl">Rating: {review.score}/10</span>
+                            </div>
+                            <div className="flex gap-4">
+                                {review.genres.map((genre) => (
+                                    <span
+                                        key={genre}
+                                        className="text-sm font-semibold bg-red-600 text-primary px-3 py-1"
+                                    >
+                                            {genre}
+                                        </span>
+                                ))}
+                            </div>
+                        </section>
+                    </article>
+                ))
+                ) : (
+                    <p className="bg-surface border border-border p-8 text-muted text-sm">There are no reviews yet</p>
+                )}
+            </section>
         </main>
     );
 };
