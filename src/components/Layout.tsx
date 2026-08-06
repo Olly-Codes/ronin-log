@@ -11,7 +11,7 @@ const Layout = () => {
     return (
         <>
             <header className="h-16 bg-surface border-b border-border flex items-center justify-around text-primary font-bold">
-                <p>Ronin <span className="text-accent">Log</span></p>
+                <p className="text-xl">Ronin <span className="text-accent">Log</span></p>
                 <Navbar />
                 {user ? (
                     <div className="flex items-center gap-4">
