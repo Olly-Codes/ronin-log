@@ -43,7 +43,7 @@ const Layout = () => {
 
             <Outlet />
 
-            <footer>
+            <footer className="h-16 bg-surface border-t border-border flex items-center justify-around text-primary font-bold">
                 <Footer />
             </footer>
         </div>
