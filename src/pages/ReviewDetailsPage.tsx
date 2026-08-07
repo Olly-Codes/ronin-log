@@ -41,7 +41,7 @@ const ReviewDetailsPage = () => {
     };
 
     if (!id) return <p>Review not found</p>
-    if (reviewQuery.isLoading) return <p>Loading Review...</p>
+    if (reviewQuery.isLoading) return <p className="bg-surface border border-border p-8 text-muted text-sm">Loading Review...</p>
 
     return (
         <main className="p-8">
