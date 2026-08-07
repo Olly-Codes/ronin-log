@@ -1,75 +1,61 @@
-# React + TypeScript + Vite
+# Ronin Log
+It is finally done, we now have the public-facing site for [Ronin Log](https://github.com/Olly-Codes/ronin-log-api). Built with React, TypeScript, and Tailwind CSS, this is where visitors can finally browse all published reviews and leave comments if they are signed or have an account.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the public version of [ronin-log-admin](https://github.com/Olly-Codes/ronin-log-admin), which was an admin-only dashboard used to write and manage reviews along with comments. This front end talks to [ronin-log-api](https://github.com/Olly-Codes/ronin-log-api), the REST API backing the entire platform.
 
-Currently, two official plugins are available:
+Live Preview: https://ronin-log-omega.vercel.app/ (back end is hosted on render, please give it a few seconds to wind up, nothing is wrong on your end unless it gives you an error)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
+Visitors can browse published reviews, view full review pages, and comment.
 
-## React Compiler
+## Home
+<img width="1920" height="967" alt="ronin-log-home" src="https://github.com/user-attachments/assets/22caf020-3b70-483f-a1e1-3447cd774c8b" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Review Page
+<img width="1920" height="1580" alt="ronin-log-review" src="https://github.com/user-attachments/assets/fbf365c9-3c56-41bb-8e29-0e0217ed21c5" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
+- Browsing and viewing of published reviews (title, markdown body, score, genres, media type, demographic, cover image)
+- The ability to comment on published reviews (user has to have an account / signed in)
+- A dark theme that is consistent with `ronin-log-admin`
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
+- React
+- TypeScript
+- Tailwind CSS
+- Axios
+- Vercel
+- Render
+- Supabase
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
+### Prerequisites
+- Node.js
+- A running instance of [ronin-log-api](https://github.com/Olly-Codes/ronin-log-api) (local or deployed)
 
+### Installation
+1. Clone this repo
+```bash
+git clone https://github.com/Olly-Codes/ronin-log.git
+cd ronin-log
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Create a separate `.env` file in the root directory. The variables should be listed in the `.env.example` in this repo
+
+4. Start the development server
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deployment
+This project is deployed on Vercel, with the API hosted separately on Render and the database on Supabase.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+## What I learned
+- React Query made things a lot easier to do in terms of fetching and sending data to `ronin-log-api`
+- Finally got to the stage of Typescript, it was not easy but I do see the benefits of it beyond types, like intellisense / auto-complete
+- While this will only reflect here, I am now confident in being able to build a project end-to-end. From the configuration of and API to multiple front ends that are deployed and interface with it in different ways depending on the requirements for each
