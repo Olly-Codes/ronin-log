@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useAuth } from "../hooks/useAuth";
 import { MdMenu } from "react-icons/md";
-import Sidebar from "./SideBar";
+import Sidebar from "./Sidebar";
 import { useState } from "react";
 
 const Layout = () => {
