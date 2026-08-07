@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import reviewsAPI from "../api/reviewsAPI";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { capatilize } from "../utils/capitlizeText"
 
 const ReviewsPage = () => {
 
@@ -45,9 +46,9 @@ const ReviewsPage = () => {
                         </section>
 
                         <section>
-                            <p className="text-muted text-sm mb-1">{review.media_type} &bull; {review.demographic}</p>
+                            <p className="text-muted text-sm mb-1">{capatilize(review.media_type)} &bull; {capatilize(review.demographic)}</p>
                             <div className="text-primary mb-4">
-                                <h2 className="text-xl lg:text-2xl font-semibold mb-1">{review.title}</h2>
+                                <h2 className="text-xl lg:text-2xl font-semibold mb-1">{capatilize(review.title)}</h2>
                                 <span className="text-2xl">Rating: {review.score}/10</span>
                             </div>
                             <div className="flex gap-4">
@@ -56,7 +57,7 @@ const ReviewsPage = () => {
                                         key={genre}
                                         className="text-sm font-semibold bg-red-600 text-primary px-3 py-1"
                                     >
-                                            {genre}
+                                            {capatilize(genre)}
                                         </span>
                                 ))}
                             </div>

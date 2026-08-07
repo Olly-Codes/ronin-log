@@ -6,6 +6,8 @@ import reviewsAPI from "../api/reviewsAPI";
 import commentsAPI from "../api/commentsAPI";
 import { useAuth } from "../hooks/useAuth";
 import { toast } from "react-hot-toast";
+import { capatilize } from "../utils/capitlizeText";
+import { dateFormat } from "../utils/dateFormatter";
 
 
 const ReviewDetailsPage = () => {
@@ -63,10 +65,10 @@ const ReviewDetailsPage = () => {
                 <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(240px,300px)] gap-4">
                     <div className="order-3 lg:order-1 bg-surface border border-border p-4">
                         <p className="text-sm text-muted mb-1">
-                            {reviewQuery.data.review.media_type} &bull; {reviewQuery.data.review.demographic}
+                            {capatilize(reviewQuery.data.review.media_type)} &bull; {capatilize(reviewQuery.data.review.demographic)}
                         </p>
                         <h1 className="text-2xl font-bold text-primary">{reviewQuery.data.review.title}</h1>
-                        <p className="text-sm text-muted mt-1 mb-4">Reviewed on {reviewQuery.data.review.created_at}</p>
+                        <p className="text-sm text-muted mt-1 mb-4">Reviewed on {dateFormat(reviewQuery.data.review.created_at)}</p>
 
                         <div className="text-primary">
                             <Markdown>{reviewQuery.data.review.body}</Markdown>
@@ -109,7 +111,7 @@ const ReviewDetailsPage = () => {
                                         >
                                             <div>
                                                 <p className="text-sm text-primary">{comment.content}</p>
-                                                <p className="text-sm text-muted">made by {comment.username} on {comment.created_at}</p>
+                                                <p className="text-sm text-muted">made by {capatilize(comment.username)} on {dateFormat(comment.created_at)}</p>
                                             </div>
                                         </li>
                                     ))}
@@ -134,7 +136,7 @@ const ReviewDetailsPage = () => {
                                         key={genre}
                                         className="text-sm font-medium bg-red-600 text-white px-3 py-1"
                                     >
-                                        {genre}
+                                        {capatilize(genre)}
                                     </span>
                                 ))}
                             </div>
