@@ -51,7 +51,7 @@ const ReviewsPage = () => {
                                 <h2 className="text-xl lg:text-2xl font-semibold mb-1">{capatilize(review.title)}</h2>
                                 <span className="text-2xl">Rating: {review.score}/10</span>
                             </div>
-                            <div className="flex gap-4">
+                            <div className="flex flex-wrap gap-4">
                                 {review.genres.map((genre) => (
                                     <span
                                         key={genre}
