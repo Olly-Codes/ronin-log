@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router";
+import { Link, Outlet, useNavigate } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useAuth } from "../hooks/useAuth";
@@ -16,7 +16,9 @@ const Layout = () => {
     return (
         <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
             <header className="h-16 bg-surface border-b border-border flex items-center justify-between lg:justify-around text-primary font-bold px-8 lg:px-0">
-                <p className="text-xl">Ronin <span className="text-accent">Log</span></p>
+                <Link to="/">
+                    <p className="text-xl">Ronin <span className="text-accent">Log</span></p>
+                </Link>
                 <div className="hidden lg:block">
                     <Navbar />
                 </div>
