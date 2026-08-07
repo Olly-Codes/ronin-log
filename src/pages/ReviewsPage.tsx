@@ -13,7 +13,7 @@ const ReviewsPage = () => {
 
     });
 
-    if (reviewsQuery.isLoading) return <p className="bg-surface border border-border p-4 text-muted text-sm">Loading Reviews...</p>
+    if (reviewsQuery.isLoading) return <p className="bg-surface border border-border p-8 text-muted text-sm">Loading Reviews...</p>
     if (reviewsQuery.isError) {
         toast.error("Could not load reviews. Please try again");
     }
