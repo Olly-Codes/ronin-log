@@ -5,7 +5,7 @@ const AboutPage = () => {
                 <h1 className="text-2xl font-bold text-primary mb-4">About Ronin <span className="text-accent">Log</span></h1>
             </header>
 
-            <section className="text-primary text-2xl">
+            <section className="text-primary text-xl lg:text-2xl">
                 <p>
                     Ronin <span>Log</span> is a platform for writing and sharing reviews of anime, manga, light novels, and many more.
                 </p>
